@@ -1,9 +1,8 @@
 import React from 'react';
 import {
-    Formik, Form, Field, FieldArray,
+    Formik, Form, Field, //FieldArray,
 } from 'formik';
-import PropTypes from 'prop-types';
-import Select from 'react-select';
+import { initialValues, simpleSchema } from './formSchema'
 
 class SimpleForm extends React.Component {
     constructor(props) {
@@ -38,8 +37,8 @@ class SimpleForm extends React.Component {
                         className="col"
                     >
                         <Formik
-                            validationSchema={partnerSchema}
-                            initialValues={this.state.initialValues}
+                            validationSchema={simpleSchema}
+                            initialValues={initialValues}
                             onSubmit={this.handleSubmit}
                             enableReinitialize={true}
                             render={({
@@ -47,11 +46,11 @@ class SimpleForm extends React.Component {
                                 touched,
                                 errors,
                                 handleSubmit,
-                                handleReset,
-                                setFieldTouched,
-                                setFieldValue,
-                                setValues,
-                                isSubmitting,
+                                // handleReset,
+                                // setFieldTouched,
+                                // setFieldValue,
+                                // setValues,
+                                // isSubmitting,
                             }) => (
                                 <Form
                                     onSubmit={
@@ -71,7 +70,6 @@ class SimpleForm extends React.Component {
                                                     className="form-group"
                                                 >
                                                     <div
-                                                        // className="col-md-3"
                                                     >
                                                         <label
                                                             htmlFor="city"
@@ -104,7 +102,6 @@ class SimpleForm extends React.Component {
                                                     </div>
 
                                                     <div
-                                                        // className="col-md-3"
                                                     >
                                                         <label
                                                             htmlFor="age"
